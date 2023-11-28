@@ -1,0 +1,63 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  width: 100vw;
+
+  margin: 0;
+  overflow-x: hidden;
+}
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px 0rem 0;
+  text-align: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+@media (max-width: 599px) {
+  #root {
+    padding: 56px 0rem 0;
+  }
+}
+.isOpen {
+  z-index: 1;
+  opacity: 1;
+  transform: translateY(0);
+}
+.isClosed {
+  z-index: -1;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+.circle {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+#form1 > * {
+  width: 250px;
+  max-width: 100%;
+}
+
+.arabic label:not(.dont-change label) {
+  position: absolute;
+  right: 0;
+  text-align: end;
+}
+.arabic input, .arabic button {
+  direction: rtl;
+  
+}

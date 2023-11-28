@@ -1,0 +1,85 @@
+.css-1fpo0vu-MuiToolbar-root:is(.cssForce) {
+  padding: 0 16px !important;
+}
+
+.forcePadding0 {
+  padding: 0 16px !important;
+}
+.signUpBtn:hover {
+  background-color: #29b6f6 !important;
+
+  opacity: 0.9;
+}
+.progressParent > span {
+  background-color: #29b6f6 !important;
+}
+.isgreen > span {
+  background-color: #388e3c !important;
+}
+.isred > span {
+  background-color: #d32f2f !important;
+}
+.isOpen {
+  animation: in 0.4s !important;
+}
+.isClosed {
+  animation: out 0.4s !important;
+}
+.labelforce > .css-ahj2mt-MuiTypography-root {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.MuiTooltip-popper * {
+  font-size: .9rem !important;
+}
+.chek {
+  animation: chek 0.4s;
+}
+@media (max-width: 600px) {
+  .labelforce > .css-ahj2mt-MuiTypography-root {
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+}
+@keyframes in {
+  0%,
+  50% {
+    opacity: 0;
+    transform: translateX(-20px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+    filter: blur(0);
+  }
+}
+
+@keyframes out {
+  0%,
+  50% {
+    opacity: 1;
+    transform: translateX(0px);
+    filter: blur(0);
+    pointer-events: all;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+    filter: blur(10px);
+    pointer-events: none;
+  }
+}
+
+@keyframes chek {
+  0%,
+  100% {
+    transform: translate(0px);
+  }
+  33% {
+    transform: translateX(30px);
+  }
+  66% {
+    transform: translateX(-30px);
+  }
+}
