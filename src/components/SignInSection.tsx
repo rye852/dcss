@@ -25,16 +25,6 @@ const SignInSectyion = ({
       className={file.lang === 'Arabic' ? 'arabic' : ''}
     >
       <FormControl sx={{ marginTop: '.5rem' }}>
-        <InputLabel htmlFor="userName">{file.SignInUp.userName}</InputLabel>
-        <Input
-          required
-          id="userName"
-          aria-describedby="my-helper-text"
-          name="userName"
-        />
-      </FormControl>
-
-      <FormControl sx={{ marginTop: '.5rem' }}>
         <InputLabel htmlFor="email">{file.SignInUp.Email}</InputLabel>
         <Input
           id="email"

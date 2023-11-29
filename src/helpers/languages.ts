@@ -73,19 +73,19 @@ export const languagsEngAr: fileType[] = [
     SignInUp: {
       signInBtn: 'Sign In',
       SignUpBtn: 'Sign Up',
-      userName: 'User Name',
+      userName: 'name',
       Email: 'E-mail',
       password: 'Password',
       gender: {
         gender: 'gender',
-        man: 'Man',
+        man: 'man',
         women: 'women',
       },
       send: 'send',
     },
-    message: 'Welcome Mr' + ' ',
+    message: 'Welcome' + ' ',
     whatIsYourState: 'how is Your Mental Health todady :',
-    yourState: ' your Mental Healthis' + ' ',
+    yourState: ' Your Mental Healthis' + ' ',
     states: ['Bad', 'Not Okay', 'normal', 'Good !'],
     publicity: 'it will be usuful to see the following sections :',
     cardsOfLinks: [
