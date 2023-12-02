@@ -6,12 +6,11 @@ import IconButton from '@mui/material/IconButton';
 import LanguageIcon from '@mui/icons-material/Language';
 import { useTheme } from '@emotion/react';
 import { ThemeOptions } from '@mui/material/styles';
-import {  useState } from 'react';
+import { useState } from 'react';
 
 //? my Imports
 import { fileType, langType, languagsEngAr } from '../helpers/languages';
 import LanguageList from './LanguagesList';
-
 
 type navBarProps = {
   file: fileType;
@@ -24,10 +23,10 @@ const NavBar = ({ file, setFile }: navBarProps) => {
 
   const changeLang = (lang: langType = file.lang, id?: number): void => {
     setIsOpen((prev) => !prev);
-    if (file.lang === lang) return console.log('sgiiiit');
+    if (file.lang === lang) return;
     if (id !== undefined) setFile(languagsEngAr[id]);
   };
- 
+
   return (
     <AppBar
       sx={{ background: primary?.secondary }}

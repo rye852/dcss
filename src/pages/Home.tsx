@@ -7,8 +7,8 @@ import {
   Stack,
   Button,
 } from '@mui/material';
-import { useOutletContext } from 'react-router';
-import {  useState } from 'react';
+import { useOutletContext, useParams } from 'react-router';
+import { useState } from 'react';
 import { fileType } from '../helpers/languages';
 import LinksToSections from '../components/LinksToSections';
 type stateType = {
@@ -20,6 +20,7 @@ const Home = () => {
   const file: fileType = useOutletContext();
   const { primary }: ThemeOptions = useTheme();
   const [state, setState] = useState<stateType | null>(null);
+  const params = useParams();
 
   return (
     <Container
@@ -45,7 +46,7 @@ const Home = () => {
           component={'span'}
           color={primary?.therd}
         >
-          {'{userName}'}
+          {params.user}
         </Typography>{' '}
       </Typography>
       {state === null ? (

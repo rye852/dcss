@@ -13,6 +13,7 @@ import { fileType } from '../helpers/languages';
 import { Form, useNavigate } from 'react-router-dom';
 import SignInSection from './SignInSection';
 import { useState } from 'react';
+import { setItem } from '../helpers/fetchFromLocalStorage';
 export type FormContentProps = {
   file: fileType;
 };
@@ -21,18 +22,26 @@ const FormContent = ({
   isSignIn,
 }: FormContentProps & { isSignIn: boolean }) => {
   const navigate = useNavigate();
-  const [home, setHome] = useState<boolean>(false);
+  const [userName, setUserName] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [error, setError] = useState<null | string>(null);
   return (
     <>
-      {home ? navigate('/home') : ''}
       {isSignIn ? (
-        <SignInSection
-          file={file}
-          setHome={setHome}
-        />
+        <SignInSection file={file} />
       ) : (
         <Form
-          onSubmit={() => setHome(true)}
+          onSubmit={(e) => {
+            e.preventDefault();
+            const item = setItem({ email, password, userName });
+            if (item === null) {
+              setError('make Sure Your E-mail, password are correct');
+              return;
+            }
+            setError(null);
+            navigate('/home/' + item.userName);
+          }}
           method="POST"
           action="/"
           id="form1"
@@ -48,28 +57,39 @@ const FormContent = ({
           <FormControl sx={{ marginTop: '.5rem' }}>
             <InputLabel htmlFor="userName">{file.SignInUp.userName}</InputLabel>
             <Input
+              error={error !== null}
               required
               id="userName"
               aria-describedby="my-helper-text"
               name="userName"
+              onChange={(e) => setUserName(e.target.value)}
+              value={userName}
             />
           </FormControl>
 
           <FormControl sx={{ marginTop: '.5rem' }}>
             <InputLabel htmlFor="email">{file.SignInUp.Email}</InputLabel>
             <Input
+              error={error !== null}
+              required
               id="email"
               aria-describedby="my-helper-text"
               name="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
           </FormControl>
           <FormControl sx={{ marginTop: '.5rem' }}>
             <InputLabel htmlFor="password">{file.SignInUp.password}</InputLabel>
             <Input
+              error={error !== null}
+              required
               type="Password"
               id="password"
               aria-describedby="my-helper-text"
               name="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
             />
           </FormControl>
           <FormControl

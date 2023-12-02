@@ -31,7 +31,7 @@ const Test = () => {
   const [Cheked3, setCheked3] = useState<boolean>(false);
 
   const nextHndler = (): void => {
-    console.log(value);
+
     if (value === null) {
       setNoCheck(false);
       setTimeout(() => {
@@ -43,7 +43,6 @@ const Test = () => {
     setValue(null);
     setIsDesibeld(true);
     setTotalValue((prev) => prev + value);
-    console.log(totalValue);
 
     setTimeout(() => {
       setCheked1(false);
@@ -133,9 +132,7 @@ const Test = () => {
                   setCheked2(false);
                   !Cheked1 ? setValue(2) : setValue(null);
                 }}
-                // onChange={(e) => {
-                //   setValue(parseInt(e.target.value));
-                // }}
+   
                 sx={{
                   color: '#d32f2f',
                   '&.Mui-checked': {
@@ -159,9 +156,6 @@ const Test = () => {
                   setCheked1(false);
                   !Cheked2 ? setValue(2) : setValue(null);
                 }}
-                // onChange={(e) => {
-                //   setValue(parseInt(e.target.value));
-                // }}
                 sx={{
                   color: '#0288d1',
                   '&.Mui-checked': {
@@ -185,10 +179,6 @@ const Test = () => {
                   setCheked2(false);
                   !Cheked3 ? setValue(2) : setValue(null);
                 }}
-                // onChange={(e) => {
-                //   console.log('here')
-                //   setValue(parseInt(e.target.value));
-                // }}
                 sx={{
                   color: '#388e3c',
                   '&.Mui-checked': {

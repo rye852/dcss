@@ -88,7 +88,7 @@ const Result = ({ totalValue, file }: resultProps) => {
         <Link
           to={
             totalValue >= 24
-              ? '/home'
+              ? '/' + file.cardsOfLinks[1].herf
               : totalValue < 16
               ? '/' + file.cardsOfLinks[2].herf
               : '/' + file.cardsOfLinks[1].herf
@@ -104,7 +104,7 @@ const Result = ({ totalValue, file }: resultProps) => {
             }}
           >
             {totalValue >= 24
-              ? file.resultLink[0]
+              ? file.resultLink[2]
               : totalValue < 16
               ? file.resultLink[1]
               : file.resultLink[2]}

@@ -1,4 +1,4 @@
-import { Container, Typography } from '@mui/material';
+import { Container } from '@mui/material';
 import { fileType } from '../helpers/languages';
 import {  useOutletContext } from 'react-router';
 import FormSign from '../components/FormSign';
@@ -18,9 +18,6 @@ const SignUp = () => {
         justifyContent: 'center',
       }}
     >
-      <Typography textAlign={"center"} sx={{position: "absolute"}} color={"#777"} variant='h6'>
-      *not working just A demo*
-      </Typography>
       <FormSign file={file} />
     </Container>
   );

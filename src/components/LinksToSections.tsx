@@ -10,7 +10,6 @@ import { cardType } from '../helpers/languages';
 import { Link } from 'react-router-dom';
 const LinksToSections = ({ cards }: { cards: cardType[] }) => {
   const { primary }: ThemeOptions = useTheme();
-  console.log(cards);
   return (
     <Stack
       direction={'column'}
