@@ -6,13 +6,13 @@ import {
   Button,
   Box,
 } from '@mui/material';
-import { fileType } from '../helpers/languages';
-import { useOutletContext } from 'react-router';
+import { Navigate, useOutletContext } from 'react-router';
 import { useTheme } from '@emotion/react';
+import { OutletContextType } from '../App';
 const Articals = () => {
-  const file: fileType = useOutletContext();
+  const { file, isAuthnticate }: OutletContextType = useOutletContext();
   const { primary }: ThemeOptions = useTheme();
-  return (
+  return isAuthnticate ? (
     <Paper
       sx={{
         width: '100%',
@@ -92,13 +92,13 @@ const Articals = () => {
       <Divider
         sx={{ background: primary?.therd, margin: '1rem auto ', width: '60%' }}
       />
-        <Divider
-          sx={{
-            background: primary?.secondary,
-            margin: '1rem auto ',
-            width: '95%',
-          }}
-        />
+      <Divider
+        sx={{
+          background: primary?.secondary,
+          margin: '1rem auto ',
+          width: '95%',
+        }}
+      />
       <Box
         sx={{
           display: 'flex',
@@ -125,6 +125,8 @@ const Articals = () => {
         </Button>
       </Box>
     </Paper>
+  ) : (
+    <Navigate to={'/'} />
   );
 };
 

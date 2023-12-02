@@ -80,7 +80,11 @@ const Result = ({ totalValue, file }: resultProps) => {
           variant={'h6'}
           color={primary?.default}
         >
-          {totalValue >= 24 ? file.youAreGood : file.advice}
+          {totalValue >= 24
+            ? file.youAreGood
+            : totalValue < 16
+            ? file.adviceToContact
+            : file.adviceToRead}
         </Typography>
       </CardContent>
       <Divider sx={{ background: primary?.therd, margin: '.5rem 10px ' }} />

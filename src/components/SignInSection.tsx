@@ -5,7 +5,7 @@ import { Form, useNavigate } from 'react-router-dom';
 import { FormContentProps } from './FormContent';
 import { getAnItem } from '../helpers/fetchFromLocalStorage';
 import { useState } from 'react';
-const SignInSectyion = ({ file }: FormContentProps & {}) => {
+const SignInSectyion = ({ file, setIsAuthnticate }: FormContentProps & {}) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
@@ -25,6 +25,7 @@ const SignInSectyion = ({ file }: FormContentProps & {}) => {
         e.preventDefault();
         const item = getAnItem({ email, password });
         if (item !== null) {
+          setIsAuthnticate(true);
           navigate('/home/' + item.userName);
         } else {
           setError('passwrd or gmail not corect');

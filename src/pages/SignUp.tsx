@@ -1,11 +1,11 @@
 import { Container } from '@mui/material';
-import { fileType } from '../helpers/languages';
+
 import {  useOutletContext } from 'react-router';
 import FormSign from '../components/FormSign';
+import { OutletContextType } from '../App';
 
 const SignUp = () => {
-  const file: fileType = useOutletContext();
-  
+  const {file, isAuthnticate, setIsAuthnticate}: OutletContextType = useOutletContext();
   
   return (
     <Container
@@ -18,7 +18,7 @@ const SignUp = () => {
         justifyContent: 'center',
       }}
     >
-      <FormSign file={file} />
+      <FormSign isAuthnticate={isAuthnticate} setIsAuthnticate={setIsAuthnticate} file={file} />
     </Container>
   );
 };

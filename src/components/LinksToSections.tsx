@@ -31,7 +31,7 @@ const LinksToSections = ({ cards }: { cards: cardType[] }) => {
           <CardContent sx={{ pb: '0' }}>
             <Typography
               component={'p'}
-              variant="subtitle1"
+              variant="h6"
               color={primary?.default}
             >
               {card.cardContent}

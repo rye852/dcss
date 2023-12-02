@@ -25,19 +25,22 @@
 .isClosed {
   animation: out 0.4s !important;
 }
-.labelforce > .css-ahj2mt-MuiTypography-root {
+.labelforce > .MuiFormControlLabel-label {
   font-size: 1.25rem;
   font-weight: 600;
 }
 .MuiTooltip-popper * {
-  font-size: .9rem !important;
+  font-size: 0.9rem !important;
 }
 .chek {
   animation: chek 0.4s;
 }
+.labelforce > .MuiFormControlLabel-label {
+  font-weight: 600;
+}
 @media (max-width: 600px) {
-  .labelforce > .css-ahj2mt-MuiTypography-root {
-    font-size: 0.75rem;
+  .labelforce > .MuiFormControlLabel-label {
+    font-size: 1rem;
     font-weight: 600;
   }
 }

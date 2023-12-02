@@ -16,10 +16,12 @@ import { useState } from 'react';
 import { setItem } from '../helpers/fetchFromLocalStorage';
 export type FormContentProps = {
   file: fileType;
+  setIsAuthnticate: React.Dispatch<React.SetStateAction<boolean>>
 };
 const FormContent = ({
   file,
   isSignIn,
+  setIsAuthnticate
 }: FormContentProps & { isSignIn: boolean }) => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState<string>('');
@@ -29,7 +31,7 @@ const FormContent = ({
   return (
     <>
       {isSignIn ? (
-        <SignInSection file={file} />
+        <SignInSection setIsAuthnticate={setIsAuthnticate} file={file} />
       ) : (
         <Form
           onSubmit={(e) => {
@@ -40,6 +42,7 @@ const FormContent = ({
               return;
             }
             setError(null);
+            setIsAuthnticate(true)
             navigate('/home/' + item.userName);
           }}
           method="POST"

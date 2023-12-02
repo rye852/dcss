@@ -4,11 +4,16 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import { useTheme } from '@emotion/react';
 import { ThemeOptions } from '@mui/material/styles';
-import { fileType } from '../helpers/languages';
+
 import { useState } from 'react';
 import FormContent from './FormContent';
+import { OutletContextType } from '../App';
 
-const FormSign = ({ file, file: { SignInUp } }: { file: fileType }) => {
+const FormSign = ({
+  file,
+  file: { SignInUp },
+  setIsAuthnticate,
+}: OutletContextType) => {
   const [isSignIn, setIsSignIn] = useState<boolean>(false);
   const { primary }: ThemeOptions = useTheme();
   return (
@@ -56,6 +61,7 @@ const FormSign = ({ file, file: { SignInUp } }: { file: fileType }) => {
       </CardActions>
       <CardContent sx={{ width: '600px', maxWidth: '100%' }}>
         <FormContent
+        setIsAuthnticate={setIsAuthnticate}
           file={file}
           isSignIn={isSignIn}
         />

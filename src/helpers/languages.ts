@@ -50,13 +50,18 @@ export type fileType = {
   yourState: string;
   states: string[];
   publicity: string;
+  publicityFromAnssawer: {
+    bad: string;
+    good: string;
+  };
   cardsOfLinks: cardType[];
   testQuestions: questionType[];
   progress: string;
   cardOptions: string[];
   btnCard: string;
   score: string;
-  advice: string;
+  adviceToContact: string;
+  adviceToRead: string;
   youAreGood: string;
   resultLink: string[];
   paragraph: (string | string[])[];
@@ -86,24 +91,30 @@ export const languagsEngAr: fileType[] = [
     message: 'Welcome' + ' ',
     whatIsYourState: 'how is Your Mental Health todady :',
     yourState: ' Your Mental Healthis' + ' ',
-    states: ['Bad', 'Not Okay', 'normal', 'Good !'],
+    states: ['Bad', 'upset', 'ecellent', 'happy'],
     publicity: 'it will be usuful to see the following sections :',
+    publicityFromAnssawer: {
+      bad: `we are upset to hear that.
+      we hope that your mental health will be good as soon as possible`,
+      good: `we are happy to hear that.
+      we always wish you good health`,
+    },
     cardsOfLinks: [
       {
         cardContent:
-          'Knowing your mental state and happiness level can make you better, and it will make it easier for you to choose the right decision for your mental state. We have prepared a test that will determine your mental state by answering the questions. To take the test, click the next button',
+          'You can measure your mental health through the following questions',
         herf: 'test',
         linkContent: 'click here',
       },
       {
         cardContent:
-          'Do you need to know more? Well, we have prepared academic articles and detailed clips crafted by experts and professionals. These resources explain everything you need.',
+          'You can read the academic article and listen to the video to help improve your mental health',
         herf: 'articals',
         linkContent: 'click here',
       },
       {
         cardContent:
-          'Perhaps you are in a critical situation and need assistance from specialists. We have provided ways for you to contact several hospitals. Click the button to go to the communication section.',
+          'You can contact the hospital closest to you and book an appointment',
         herf: 'contact',
         linkContent: 'click here',
       },
@@ -149,10 +160,12 @@ export const languagsEngAr: fileType[] = [
     cardOptions: ['No', 'Some Times', 'Yes'],
     btnCard: 'Next',
     score: 'Your score is',
-    advice:
-      'You passed the test your Mental Health is not that much good so you must see the followin section',
+    adviceToContact:
+      'We advise to contact the hospital numbers included in this application',
+    adviceToRead:
+      'We advise you to read the acadimic article and watch the video to help with mental clarity',
     youAreGood:
-      'You passed the test seccusfully your Mental Health is very good',
+      'You have achieved a wonderful percentage. we hope that you will always be in good health',
     resultLink: ['home', 'Hospitals', 'Articals & advice'],
     paragraph: [
       `Firstly: acknowledge your feelings.
@@ -208,7 +221,7 @@ export const languagsEngAr: fileType[] = [
       ],
     ],
     paragraphTitle: `Academic Article`,
-    pargrapheVideoTitle: 'For more details watche this YouTube vedio',
+    pargrapheVideoTitle: 'To help with mental clarity',
     hospitals: [
       {
         name: 'Irada Mental Health Hospital',
@@ -240,6 +253,56 @@ export const languagsEngAr: fileType[] = [
         location: 'Asir',
         phoneNumber: parseFloat('0172329674'),
       },
+      {
+        name: 'Mental Health Hospital',
+        location: 'Abha',
+        phoneNumber: parseFloat('0172329674'),
+      },
+      {
+        name: 'Sound Mind Complex',
+        location: 'Jazan',
+        phoneNumber: parseFloat('0539975555'),
+      },
+      {
+        name: 'i can center',
+        location: 'Riyadh',
+        phoneNumber: parseFloat('0556648249'),
+      },
+      {
+        name: 'Priory Wellbeing center',
+        location: 'Riyadh',
+        phoneNumber: parseFloat('0112270200'),
+      },
+      {
+        name: 'Mental Health Hospital',
+        location: 'Jeddah',
+        phoneNumber: parseFloat('0126361078'),
+      },
+      {
+        name: 'Waad Group for Health & Wellbeing',
+        location: 'Jeddah',
+        phoneNumber: parseFloat('0591402043'),
+      },
+      {
+        name: 'Al Amal Hospital',
+        location: 'Dammam',
+        phoneNumber: parseFloat('0138392448'),
+      },
+      {
+        name: 'Mental Health Hospital',
+        location: 'Al Madinah Al Munawwarah',
+        phoneNumber: parseFloat('0148402002'),
+      },
+      {
+        name: 'Armed Forces Center for Psychiatric care',
+        location: 'Taif',
+        phoneNumber: parseFloat('0127336100'),
+      },
+      {
+        name: 'Clinical psychology unit',
+        location: 'Tabuk',
+        phoneNumber: parseFloat('0144562332'),
+      },
     ],
     theadContent: ['Hospital Name', 'Location', 'Phone Number'],
   },
@@ -264,22 +327,24 @@ export const languagsEngAr: fileType[] = [
     yourState: ' حالتك النفسية هي' + ' ',
     states: ['سيئة', 'ليست جيدة', 'طبيعية', 'ممتازة'],
     publicity: ' سوف يكون من المفيد زيارة الصفحات التالية :',
+    publicityFromAnssawer: {
+      bad: `نحن نشعر بخيبة أمل لسماع ذلك. نأمل أن يكون صحتك العقلية جيدة في أقرب وقت ممكن`,
+      good: `نحن سعداء لسماع ذلك. نتمنى دائمًا لك الصحة الجيدة`,
+    },
     cardsOfLinks: [
       {
-        cardContent:
-          'معرفة حالتك النفسية ونسبة سعادتك قد يجعلك أفضل، وسيسهل عليك اختيار القرار المناسب لحالتك النفسية لقد جهزنا لك اختبارا سوف يحدد حالتك النفسية عن طريق الاجابة عن الأسئلة لإجتياز الإختبار إضغط على الزر التالي',
+        cardContent: 'يمكنك قياس صحتك العقلية من خلال الأسئلة التالية',
         herf: 'test',
         linkContent: 'إضغط هنا',
       },
       {
         cardContent:
-          'هل تحتاج إلى معرفة المزيد؟ حسنا نحن قد أعددنا لك مقالات أكاديمية و مقاطع تفصيلية صنعت من قبل مختصين ومحترفين هذه الموارد تشرح لك كل ما تحتاجه',
+          'يمكنك قراءة المقال الأكاديمي والاستماع إلى الفيديو للمساعدة في تحسين صحتك العقلية',
         herf: 'articals',
         linkContent: 'إضغط هنا',
       },
       {
-        cardContent:
-          'لربما انت في حالة حرجة وتحتاج إلى مساعدة مختصين قد جهزنا لك طرق للتواصل مع عدة مستشفيات، اضغط على الزر للانتقال إلى قسم التواصل',
+        cardContent: 'يمكنك الاتصال بأقرب مستشفى إليك وحجز موعد',
         herf: 'contact',
         linkContent: 'إضغط هنا',
       },
@@ -323,8 +388,9 @@ export const languagsEngAr: fileType[] = [
     cardOptions: ['لا', 'أحيانا', 'أجل'],
     btnCard: 'التالي',
     score: 'نتيجتك هي',
-    advice:
-      'لقد اجتزت الإختبار نتيجتك ليست جيدة لذا يجب عليك زيارة القسم التالي',
+    adviceToContact: 'ننصح بالاتصال بأرقام المستشفى المدرجة في هذا التطبيق.',
+    adviceToRead:
+      'ننصحك بقراءة المقال الأكاديمي ومشاهدة الفيديو للمساعدة في وضوح العقل',
     youAreGood: 'لقد اجتزت الإختبار بشكل جيد حالتك النفسية في أحسن أحوالها',
     resultLink: ['الرئيسية', 'المستشفيات', 'المقالات والنصائح'],
     paragraph: [
@@ -360,7 +426,7 @@ export const languagsEngAr: fileType[] = [
       ],
     ],
     paragraphTitle: `مقال أكاديمي`,
-    pargrapheVideoTitle: 'لتفاصيل أكثر شاهد المقطع التالي',
+    pargrapheVideoTitle: 'للمساعدة في وضوح العقل',
     hospitals: [
       {
         name: 'مستشفى إرادة للصحة النفسية',
@@ -391,6 +457,56 @@ export const languagsEngAr: fileType[] = [
         name: 'مستشفى الصحة النفسية',
         location: 'عسير',
         phoneNumber: parseFloat('0172329674'),
+      },
+      {
+        name: 'مستشفى الصحة النفسية',
+        location: 'أبها',
+        phoneNumber: parseFloat('0172329674'),
+      },
+      {
+        name: 'مجمع العقل السليم',
+        location: 'جازان',
+        phoneNumber: parseFloat('0539975555'),
+      },
+      {
+        name: 'مركز أستطيع',
+        location: 'الرياض',
+        phoneNumber: parseFloat('0556648249'),
+      },
+      {
+        name: 'مركز بريوري للعافية',
+        location: 'الرياض',
+        phoneNumber: parseFloat('0112270200'),
+      },
+      {
+        name: 'مستشفى الصحة النفسية',
+        location: 'جدة',
+        phoneNumber: parseFloat('0126361078'),
+      },
+      {
+        name: 'مجموعة وعد للصحة والعافية',
+        location: 'جدة',
+        phoneNumber: parseFloat('0591402043'),
+      },
+      {
+        name: 'مستشفى الامل',
+        location: 'الدمام',
+        phoneNumber: parseFloat('0138392448'),
+      },
+      {
+        name: 'مستشفى الصحة النفسية',
+        location: 'المدينه المنوره',
+        phoneNumber: parseFloat('0148402002'),
+      },
+      {
+        name: 'مركز القوات المسلحة للرعاية النفسية',
+        location: 'الطائف',
+        phoneNumber: parseFloat('0127336100'),
+      },
+      {
+        name: 'وحدة علم النفس الاكلينيكي',
+        location: 'تبوك',
+        phoneNumber: parseFloat('0144562332'),
       },
     ],
     theadContent: ['اسم المستشفى', 'اسم المستشفى', 'رقم الهاتف'],

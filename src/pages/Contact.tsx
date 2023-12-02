@@ -12,22 +12,23 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
-import { useOutletContext } from 'react-router';
-import { fileType } from '../helpers/languages';
+import { Navigate, useOutletContext } from 'react-router';
+
 import { useTheme } from '@emotion/react';
 import { useState } from 'react';
+import { OutletContextType } from '../App';
 function createData(name: string, location: string, phoneNumber: number) {
   return { name, location, phoneNumber };
 }
 
 const Contact = () => {
-  const file: fileType = useOutletContext();
+  const { file, isAuthnticate }: OutletContextType = useOutletContext();
   const { primary }: ThemeOptions = useTheme();
   const [copied, setCopied] = useState<boolean>(false);
   const rows = file.hospitals.map((hospital) => {
     return createData(hospital.name, hospital.location, hospital.phoneNumber);
   });
-  return (
+  return isAuthnticate ? (
     <Container
       sx={{
         width: '100%',
@@ -109,6 +110,8 @@ const Contact = () => {
         </Table>
       </TableContainer>
     </Container>
+  ) : (
+    <Navigate to={'/'} />
   );
 };
 

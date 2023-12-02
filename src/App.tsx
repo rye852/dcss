@@ -5,9 +5,14 @@ import { languagsEngAr, fileType } from './helpers/languages';
 import Footer from './components/Footer';
 import { Container } from '@mui/material';
 
+export type OutletContextType = {
+  file: fileType;
+  isAuthnticate: boolean;
+  setIsAuthnticate: React.Dispatch<React.SetStateAction<boolean>>;
+};
 const App = () => {
   const [file, setFile] = useState<fileType>(languagsEngAr[0]);
-
+  const [isAuthnticate, setIsAuthnticate] = useState<boolean>(false);
   return (
     <>
       <Container
@@ -27,7 +32,7 @@ const App = () => {
           setFile={setFile}
         />
 
-        <Outlet context={file} />
+        <Outlet context={{ file, isAuthnticate, setIsAuthnticate }} />
         <Footer />
       </Container>
     </>

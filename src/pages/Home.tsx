@@ -7,22 +7,22 @@ import {
   Stack,
   Button,
 } from '@mui/material';
-import { useOutletContext, useParams } from 'react-router';
+import { Navigate, useOutletContext, useParams } from 'react-router';
 import { useState } from 'react';
-import { fileType } from '../helpers/languages';
 import LinksToSections from '../components/LinksToSections';
 type stateType = {
   state: number;
   color: string;
 };
+import { OutletContextType } from '../App';
 
 const Home = () => {
-  const file: fileType = useOutletContext();
+  const { file, isAuthnticate }: OutletContextType = useOutletContext();
   const { primary }: ThemeOptions = useTheme();
   const [state, setState] = useState<stateType | null>(null);
   const params = useParams();
-
-  return (
+  console.log(state);
+  return isAuthnticate ? (
     <Container
       sx={{
         direction: file.lang === 'Arabic' ? 'rtl' : 'ltr',
@@ -62,17 +62,17 @@ const Home = () => {
           <Stack
             justifyContent={'center'}
             marginTop={'2rem'}
-            direction={{ xs: 'column', sm: 'row' }}
+            direction={{ xs: 'column' }}
           >
             <Button
               variant="contained"
               color="error"
               onClick={() => setState({ state: 0, color: '#c62828' })}
-              sx={{ margin: { xs: 1, sm: 2, md: 3 } }}
+              sx={{ margin: { xs: 1, sm: 2, md: 3 }, padding: '10px' }}
             >
               <Typography
                 fontWeight={600}
-                variant="h6"
+                variant="h5"
               >
                 {file.states[0]} 🙁
               </Typography>
@@ -82,11 +82,11 @@ const Home = () => {
               variant="contained"
               color="warning"
               onClick={() => setState({ state: 1, color: '#e65100' })}
-              sx={{ margin: { xs: 1, sm: 2, md: 3 } }}
+              sx={{ margin: { xs: 1, sm: 2, md: 3 }, padding: '10px' }}
             >
               <Typography
                 fontWeight={600}
-                variant="h6"
+                variant="h5"
               >
                 {file.states[1]} 🥹
               </Typography>
@@ -95,11 +95,11 @@ const Home = () => {
               variant="contained"
               color="info"
               onClick={() => setState({ state: 2, color: '#01579b' })}
-              sx={{ margin: { xs: 1, sm: 2, md: 3 } }}
+              sx={{ margin: { xs: 1, sm: 2, md: 3 }, padding: '10px' }}
             >
               <Typography
                 fontWeight={600}
-                variant="h6"
+                variant="h5"
               >
                 {file.states[2]} 😐
               </Typography>
@@ -108,11 +108,11 @@ const Home = () => {
               variant="contained"
               color="success"
               onClick={() => setState({ state: 3, color: '#1b5e20' })}
-              sx={{ margin: { xs: 1, sm: 2, md: 3 } }}
+              sx={{ margin: { xs: 1, sm: 2, md: 3 }, padding: '10px' }}
             >
               <Typography
                 fontWeight={600}
-                variant="h6"
+                variant="h5"
               >
                 {file.states[3]} 🤣
               </Typography>
@@ -122,7 +122,7 @@ const Home = () => {
       ) : (
         <>
           <Box>
-            <Typography
+            {/* <Typography
               color={primary?.secondary}
               mt={'1rem'}
               variant="h4"
@@ -137,6 +137,16 @@ const Home = () => {
               >
                 {file.states[state.state]}
               </Typography>
+            </Typography> */}
+            <Typography
+              color={state.color}
+              mt={'1rem'}
+              variant="h4"
+              textAlign={'start'}
+            >
+              {state.state >= 2
+                ? file.publicityFromAnssawer.good
+                : file.publicityFromAnssawer.bad}
             </Typography>
             <Typography
               color={primary?.default}
@@ -151,6 +161,8 @@ const Home = () => {
         </>
       )}
     </Container>
+  ) : (
+    <Navigate to="/" />
   );
 };
 
