@@ -131,7 +131,7 @@ const Test = () => {
                     setCheked1((prv) => !prv);
                     setCheked3(false);
                     setCheked2(false);
-                    !Cheked1 ? setValue(2) : setValue(null);
+                    !Cheked1 ? setValue(0) : setValue(null);
                   }}
                   sx={{
                     color: '#d32f2f',
@@ -154,7 +154,7 @@ const Test = () => {
                     setCheked2((prv) => !prv);
                     setCheked3(false);
                     setCheked1(false);
-                    !Cheked2 ? setValue(2) : setValue(null);
+                    !Cheked2 ? setValue(1) : setValue(null);
                   }}
                   sx={{
                     color: '#0288d1',
